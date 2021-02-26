@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "risk_id": "TLR-596",
+    "simulation_id": "TLR-596-Resistant",
+    "risk_description": "Accidental capacitive touch: settings change",
+    "config_format_version": "v1.0"
+  },
+  "override_config": [
+    {
+      "pre": {
+        "metabolism_setting": {
+          "basal_rate": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [1.8]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "post": {
+        "metabolism_setting": {
+          "basal_rate": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [1.8]
+            }
+          ]
+        },
+        "patient": {
+          "pump": "pump_mitigations_resistant"
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    }
+  ]
+}
