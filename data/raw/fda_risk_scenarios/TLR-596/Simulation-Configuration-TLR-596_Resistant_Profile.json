@@ -8,11 +8,16 @@
   "override_config": [
     {
       "pre": {
-        "metabolism_setting": {
+        "scenario_id": "over delivery pre",
+        "patient_metabolism_setting": {
           "basal_rate": [
             {
-              "start_times": ["0:00:00"],
-              "values": [1.8]
+              "start_times": [
+                "0:00:00"
+              ],
+              "values": [
+                1.8
+              ]
             }
           ]
         }
@@ -20,16 +25,53 @@
     },
     {
       "post": {
+        "scenario_id": "over delivery post",
         "metabolism_setting": {
           "basal_rate": [
             {
-              "start_times": ["0:00:00"],
-              "values": [1.8]
+              "start_times": [
+                "0:00:00"
+              ],
+              "values": [
+                1.8
+              ]
             }
           ]
         },
         "patient": {
           "pump": "pump_mitigations_resistant"
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    },
+    {
+      "pre": {
+        "scenario_id": "under delivery pre",
+        "patient": {
+          "sensor": "glucose_flat_200",
+          "target_range": [
+            {
+              "start_times": ["0:00:00"],
+              "lower_values": [70],
+              "upper_values": [180]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "post": {
+        "scenario_id": "under delivery post",
+        "patient": {
+          "pump": "pump_mitigations_resistant",
+          "sensor": "glucose_flat_200",
+          "target_range": [
+            {
+              "start_times": ["0:00:00"],
+              "lower_values": [70],
+              "upper_values": [180]
+            }
+          ]
         },
         "controller": "controller_mitigations_resistant"
       }
