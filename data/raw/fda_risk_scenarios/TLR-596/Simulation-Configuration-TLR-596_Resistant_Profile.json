@@ -8,7 +8,7 @@
   "override_config": [
     {
       "pre": {
-        "scenario_id": "over delivery pre",
+        "scenario_id": "over delivery (pre)",
         "patient_metabolism_setting": {
           "basal_rate": [
             {
@@ -25,8 +25,8 @@
     },
     {
       "post": {
-        "scenario_id": "over delivery post",
-        "metabolism_setting": {
+        "scenario_id": "over delivery (post)",
+        "patient_metabolism_setting": {
           "basal_rate": [
             {
               "start_times": [
@@ -46,7 +46,7 @@
     },
     {
       "pre": {
-        "scenario_id": "under delivery pre",
+        "scenario_id": "under delivery (pre)",
         "patient": {
           "sensor": "glucose_flat_200",
           "target_range": [
@@ -61,7 +61,7 @@
     },
     {
       "post": {
-        "scenario_id": "under delivery post",
+        "scenario_id": "under delivery (post)",
         "patient": {
           "pump": "pump_mitigations_resistant",
           "sensor": "glucose_flat_200",

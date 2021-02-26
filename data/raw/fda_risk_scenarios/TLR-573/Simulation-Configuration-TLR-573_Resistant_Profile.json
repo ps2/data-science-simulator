@@ -1,0 +1,146 @@
+{
+  "metadata": {
+    "risk_id": "TLR-573",
+    "simulation_id": "TLR-573-Resistant",
+    "risk_description": "Metabolic settings are too aggressive",
+    "config_format_version": "v1.0"
+  },
+  "override_config": [
+    {
+      "pre": {
+        "scenario_id": "aggressive insulin sensitivity factor (pre)",
+        "patient_metabolism_setting": {
+          "insulin_sensitivity_factor": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [10]
+            }
+          ]
+        },
+        "patient": {
+          "carb_entries": [
+            {
+              "type": "carb",
+              "start_time": "8/15/2019 12:00:00",
+              "value": 31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "post": {
+        "scenario_id": "aggressive insulin sensitivity factor (post)",
+        "patient_metabolism_setting": {
+          "insulin_sensitivity_factor": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [10]
+            }
+          ]
+        },
+        "patient": {
+          "pump": "pump_mitigations_resistant",
+          "carb_entries": [
+            {
+              "type": "carb",
+              "start_time": "8/15/2019 12:00:00",
+              "value": 31
+            }
+          ]
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    },
+    {
+      "pre": {
+        "scenario_id": "Aggressive carb ratio (pre)",
+        "patient": {
+          "carb_insulin_ratio": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [20]
+            }
+          ],
+          "carb_entries": [
+            {
+              "type": "carb",
+              "start_time": "8/15/2019 12:00:00",
+              "value": 31
+            }
+          ]
+        }
+      }
+    },
+    {
+      "post": {
+        "scenario_id": "Aggressive carb ratio (post)",
+        "patient": {
+          "pump": "pump_mitigations_resistant",
+          "carb_insulin_ratio": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [20]
+            }
+          ],
+          "carb_entries": [
+            {
+              "type": "carb",
+              "start_time": "8/15/2019 12:00:00",
+              "value": 31
+            }
+          ]
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    },
+    {
+      "pre": {
+        "scenario_id": "Basal rate too high (pre)",
+        "patient": {
+          "basal_rate": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [1.6]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "post": {
+        "scenario_id": "Basal rate too high (post)",
+        "patient": {
+          "pump": "pump_mitigations_resistant",
+          "basal_rate": [
+            {
+              "start_times": ["0:00:00"],
+              "values": [1.6]
+            }
+          ]
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    },
+    {
+      "pre": {
+        "scenario_id": "Incorrect insulin model (pre)",
+        "default": {
+          "model": "rapid_acting_child"
+        }
+      }
+    },
+    {
+      "post": {
+        "scenario_id": "Incorrect insulin model (post)",
+        "default": {
+          "model": "rapid_acting_child"
+        },
+        "patient": {
+          "pump": "pump_mitigations_resistant",
+        },
+        "controller": "controller_mitigations_resistant"
+      }
+    }
+  ]
+}
