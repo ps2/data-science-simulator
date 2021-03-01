@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "risk_id": "TLR-682",
+    "simulation_id": "TLR-682-Median",
+    "description": "Manual bolus is higher than intended (digit entry error)",
+    "config_format_version": "v1.0"
+  },
+  "base_config": "base_config_median",
+  "override_config": [
+    {
+      "id": "pre",
+      "patient": {
+        "pump": {
+          "insulin_entries": "median_doses"
+        }
+      },
+    },
+    {
+      "id": "post",
+      "patient": {
+        "pump": {
+          "target_range": "median_target_range_mitigation",
+          "insulin_entries": "median_doses"
+        }
+      },
+      "controller": "controller_settings_median_mitigation"
+    }
+  ]
+}
